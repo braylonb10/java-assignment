@@ -20,70 +20,73 @@ Code:
 
 
 
+
 NumberCreator.java:
-import java.util.Random;
+    
+    import java.util.Random;
 
-public class NumberCreator {
-private int[] num;
-private int maxNum;
+    public class NumberCreator {
+    private int[] num;
+    private int maxNum;
 
-    public NumberCreator(int count, int maxNum){
-        this.num = new int[count];
-        this.maxNum = maxNum;
-    }
-
-    public void generateNum(){
-        Random rand = new Random();
-        for(int i = 0; i < num.length; i++){
-            num[i] = rand.nextInt(maxNum) + 1;
+        public NumberCreator(int count, int maxNum){
+            this.num = new int[count];
+            this.maxNum = maxNum;
         }
-    }
 
-    public int numRange(int [] arrayToProcess, int minVal, int maxVal){
-        int number = 0;
-        for(int i = 0; i < arrayToProcess.length; i++){
-            if(arrayToProcess[i] >= minVal && arrayToProcess[i] <= maxVal){
-                number++;
+        public void generateNum(){
+            Random rand = new Random();
+            for(int i = 0; i < num.length; i++){
+                num[i] = rand.nextInt(maxNum) + 1;
             }
         }
 
-        return number;
-    }
+        public int numRange(int [] arrayToProcess, int minVal, int maxVal){
+            int number = 0;
+            for(int i = 0; i < arrayToProcess.length; i++){
+                if(arrayToProcess[i] >= minVal && arrayToProcess[i] <= maxVal){
+                    number++;
+                }
+            }
 
-    public int[] fetchArrayData(){
-        return this.num;
+            return number;
+        }
+
+        public int[] fetchArrayData(){
+            return this.num;
+        }
     }
-}
 
 
 Main.java:
-import java.util.Scanner;
+    
+    import java.util.Scanner;
 
-public class Main {
-public static void main(String[] args) {
-Scanner scanner = new Scanner(System.in);
+    public class Main{
+        public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Amount of random numbers to generate: ");
-        int count = scanner.nextInt();
+            System.out.println("Amount of random numbers to generate: ");
+            int count = scanner.nextInt();
 
-        System.out.println("Maximum random value: ");
-        int maxNum = scanner.nextInt();
-
-
-        NumberCreator generator = new NumberCreator(count, maxNum);
-        generator.generateNum();
+            System.out.println("Maximum random value: ");
+            int maxNum = scanner.nextInt();
 
 
-        System.out.println("Enter the minimum value: ");
-        int minVal = scanner.nextInt();
+            NumberCreator generator = new NumberCreator(count, maxNum);
+            generator.generateNum();
 
-        System.out.println("Enter maximum value");
-        int maxVal = scanner.nextInt();
 
-        int[] data = generator.fetchArrayData();
-        int total = generator.numRange(data, minVal, maxVal);
+            System.out.println("Enter the minimum value: ");
+            int minVal = scanner.nextInt();
 
-        System.out.println("gSuccessfully generated " + count + " numbers.");
-        System.out.println("Found " + total + " numbers between " + minVal + " and " + maxVal + ".");
+            System.out.println("Enter maximum value");
+            int maxVal = scanner.nextInt();
+
+            int[] data = generator.fetchArrayData();
+            int total = generator.numRange(data, minVal, maxVal);
+
+            System.out.println("gSuccessfully generated " + count + " numbers.");
+            System.out.println("Found " + total + " numbers between " + minVal + " and " + maxVal + ".");
+        }
     }
-}
