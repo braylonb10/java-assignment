@@ -9,4 +9,6 @@ I created my second user-defined method called numRange which creates the range 
 
 In my Main class, the code used in my NumberCreator class got called which allowed me to run my code.
 
-Had to add my generator.generateNum so my array has values in it
+Had to add my generator.generateNum so my array has values in it.
+
+Added note, I separated my two classes so that the code is not too overcrowded on just one main class, and also to make the code easier to access in case I needed to make changes.
